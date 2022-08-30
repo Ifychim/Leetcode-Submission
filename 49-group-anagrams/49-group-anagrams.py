@@ -16,7 +16,7 @@ class Solution:
                 ana_map[sorted_str].append(string)
         
       
-        result = list(ana_map.values())
+        result = ana_map.values()
         
         return result
    
