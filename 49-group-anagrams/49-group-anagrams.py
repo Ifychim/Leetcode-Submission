@@ -3,7 +3,9 @@ from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-        #Create a default dict of all anagrams {key = sorted str of input ; val = [anagrams of key]}
+        #Create a map consisting of {anagram:[list of corresponding anagrams]}
+        #The anagram will be the reverse of each word in the input.
+        #At each iteration we check to see if we have seen the anagram before and update the map accordingly.
 
         ana_map = defaultdict(list)
         
