@@ -14,9 +14,7 @@ class Solution:
         
         result = []
         for i in range(0,len(nums)):
-            
-            if nums[i] in answer_dict.keys():
-                result.append(answer_dict[nums[i]])
+            result.append(answer_dict[nums[i]])
                 
         return result
             
