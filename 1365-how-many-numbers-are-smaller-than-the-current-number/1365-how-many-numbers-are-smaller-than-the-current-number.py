@@ -1,14 +1,10 @@
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
         
-        result = []
-        for i in range(0,len(nums)):
-            result.append(0)
-            
         sorted_nums = sorted(nums,reverse=True) 
         
         answer_dict = {}
-        #idx = nums.index(nums[i])
+     
         for i in range(0,len(nums)):
             counter = 0
             for j in range(i+1, len(nums)):
