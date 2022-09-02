@@ -11,14 +11,13 @@ class Solution:
         :rtype: void Do not return anything, modify node in-place instead.
         """
         
-        #replace currNodeVal with nextNodeVal
+        #Replace the node to be deleted with the next node in the LL
+        #Delete next node in the LL
         nextNode = node.next
         
         node.val = nextNode.val
         node.next = nextNode.next
         
         nextNode.next = None
-        
         del(nextNode)
-        #delete nextNode
         
