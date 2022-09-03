@@ -6,7 +6,7 @@ class Solution:
         for i in range(1, n+1):
             
             #if i is divisible by 3 & 5 -> FizzBuzz
-            if i % 3 == 0 and i % 5 == 0:
+            if i % 5 == 0 and i % 3 == 0:
                 answer.append("FizzBuzz")
                 
             #if i is divisible by 3 -> Fizz
@@ -19,6 +19,4 @@ class Solution:
             else:
                 answer.append("{}".format(i))
             
-        
-        
         return answer
