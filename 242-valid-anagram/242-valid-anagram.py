@@ -1,6 +1,7 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        
+        #O(N) time because up to N characters in string. 
+        #O(1) space cause alphabet contains 26 letters
         if len(s) != len(t):
             return False
         
