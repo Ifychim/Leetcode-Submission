@@ -6,6 +6,7 @@ class Solution:
         
         while low <= high:
             
+            #mid point is the distance between high and low pointers
             mid_point = (low + high) // 2
             
             if nums[mid_point] == target:
