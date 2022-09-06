@@ -3,24 +3,29 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        low = 0
+        high = len(nums) - 1
+        curr = 0
         
-
-        zeros = []
-        ones = []
-        twos = []
-        result = []
-        
-        for num in nums:
-            if num == 0:
-                zeros.append(num)
-            elif num == 1:
-                ones.append(num)
-            else:
-                twos.append(num)
+        while curr <= high:
+            if nums[curr] == 0:
                 
-        result.extend(zeros)
-        result.extend(ones)
-        result.extend(twos)
-        nums.clear()
-        nums.extend(result)
-        
+                temp = nums[low]
+                nums[low] = nums[curr]
+                nums[curr] = temp
+                
+                low += 1
+                curr += 1
+                
+            elif nums[curr] == 2:
+                
+                temp = nums[high]
+                nums[high] = nums[curr]
+                nums[curr] = temp
+                
+                high -= 1
+            else:
+                curr += 1
+                
+        print(nums)
+                
