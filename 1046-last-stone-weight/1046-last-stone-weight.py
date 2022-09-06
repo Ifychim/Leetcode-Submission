@@ -5,17 +5,17 @@ class Solution:
         
         stones.sort(reverse=True)
         
-        low = 0
-        high = 1
+        smaller = 1
+        bigger = 0
         
-        while high < len(stones):
+        while smaller < len(stones):
             
-            if stones[low] == stones[high]:
+            if stones[smaller] == stones[bigger]:
                 stones.pop(0)
                 stones.pop(0)
-            elif stones[high] != stones[low]:
+            elif stones[smaller] != stones[bigger]:
                 
-                new_stone = stones[low] - stones[high]
+                new_stone = stones[bigger] - stones[smaller]
                 stones.pop(0)
                 stones.pop(0)
                 stones.insert(0,new_stone)
