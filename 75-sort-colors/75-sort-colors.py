@@ -3,12 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        #O(N) time, O(1) space.
         low = 0
         high = len(nums) - 1
         curr = 0
         while curr <= high:
             if nums[curr] == 0:
-                
                 temp = nums[low]
                 nums[low] = nums[curr]
                 nums[curr] = temp
@@ -17,7 +17,6 @@ class Solution:
                 curr += 1
                 
             elif nums[curr] == 2:
-                
                 temp = nums[high]
                 nums[high] = nums[curr]
                 nums[curr] = temp
@@ -30,7 +29,7 @@ class Solution:
     
     
     '''
-    HARD CODED SOLUTION 
+    O(N) time, O(N) space.
         zeros = []
         ones = []
         twos = []
@@ -48,7 +47,6 @@ class Solution:
         result.extend(ones)
         result.extend(twos)
         nums.clear()
-        nums.extend(result)
-        
+        nums.extend(result)   
     '''
                 
