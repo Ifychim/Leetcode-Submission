@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
-        
+        #O(n) solution.
         temp = head
         result = ""
         
@@ -14,6 +14,7 @@ class Solution:
             result += str(temp.val)
             temp = temp.next
         
+        #base 2 for a binary number.
         result = int(result,2)
         
         return result
