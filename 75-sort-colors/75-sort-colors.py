@@ -6,7 +6,6 @@ class Solution:
         low = 0
         high = len(nums) - 1
         curr = 0
-        
         while curr <= high:
             if nums[curr] == 0:
                 
@@ -27,5 +26,29 @@ class Solution:
             else:
                 curr += 1
                 
-        print(nums)
+        return nums
+    
+    
+    '''
+    HARD CODED SOLUTION 
+        zeros = []
+        ones = []
+        twos = []
+        result = []
+        
+        for num in nums:
+            if num == 0:
+                zeros.append(num)
+            elif num == 1:
+                ones.append(num)
+            else:
+                twos.append(num)
+                
+        result.extend(zeros)
+        result.extend(ones)
+        result.extend(twos)
+        nums.clear()
+        nums.extend(result)
+        
+    '''
                 
