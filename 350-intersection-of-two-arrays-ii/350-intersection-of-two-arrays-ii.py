@@ -7,6 +7,7 @@ class Solution:
             if num in nums2:
                 result.append(num)
                 
+                #handles appending duplicates
                 num2_idx = nums2.index(num)
                 nums2.pop(num2_idx)
             
