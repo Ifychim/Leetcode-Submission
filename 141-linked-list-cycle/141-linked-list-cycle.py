@@ -4,10 +4,11 @@
 #         self.val = x
 #         self.next = None
 
+#O(N) time, O(1) space
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        
-        #O(N) time, O(1) space
+       
+        #Edge Case -> Empty list or List with only one element
         if head == None or head.next == None : return False
         
         slow = head
@@ -17,7 +18,6 @@ class Solution:
             
             fast = fast.next.next
             slow = slow.next
-            
             
             if fast == slow:
                 return True
