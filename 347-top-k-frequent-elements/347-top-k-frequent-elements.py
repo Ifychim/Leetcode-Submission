@@ -8,7 +8,7 @@ class Solution:
             frequency[num] = frequency.get(num, 0) + 1
         
         
-        #sort in descending order by frequency (maybe)
+        #sort in descending order by frequency 
         sorted_frequency = sorted(frequency.items(), key = lambda x: -x[1])
     
         
