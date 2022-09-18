@@ -13,7 +13,7 @@ class Solution:
             if char not in closing_matches:
                 open_brackets.append(char)
             else:
-                if len(open_brackets) > 0 and closing_matches[char] == open_brackets[-1]: 
+                if len(open_brackets) > 0 and open_brackets[-1] == closing_matches[char]: 
                     open_brackets.pop()
                 else:
                     return False
