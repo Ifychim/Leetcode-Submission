@@ -1,6 +1,7 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         if len(s) <= 1: return False
+        
         closing_matches = {')': '(', 
                            '}': '{',
                            ']': '[',
@@ -14,6 +15,7 @@ class Solution:
                 open_brackets.append(char)
             else:
                 open_char = ""
+                
                 if len(open_brackets) > 0: open_char = open_brackets[-1]
                     
                 closing_char = closing_matches[char]
