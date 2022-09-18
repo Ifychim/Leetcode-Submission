@@ -25,7 +25,7 @@ class Solution:
                 else:
                     return False
                 
-        if len(open_brackets) > 0:
-            return False
-        else:
+        if len(open_brackets) == 0:
             return True
+        else:
+            return False
