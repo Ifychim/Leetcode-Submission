@@ -5,7 +5,6 @@ class Solution:
         
         sub_str = Counter(s1)  
         
-        
         for i in range(0, len(s2)):
             comparison = Counter(s2[i:i+len(s1)])
             
