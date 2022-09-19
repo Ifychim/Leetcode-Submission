@@ -15,6 +15,7 @@ class MinStack:
         return self.stack[len(self.stack)-1]
     
     def getMin(self) -> int:
+        
         self.minimum = float(inf)
         
         for num in self.stack:
