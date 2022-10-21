@@ -4,16 +4,16 @@ class Solution:
         
         low = float(inf)
         high = 0
-        result = 0
+        max_profit = 0
         
         while high < len(prices):
             
-            #if we find a new low, update  sales
+            #if we find a new low, update lowest buying point
             if prices[high] < low:
                 low = prices[high]
             else:
-                result = max(prices[high]-low, result)
+                max_profit = max(prices[high]-low, max_profit)
             
             high += 1
             
-        return result
+        return max_profit
