@@ -1,19 +1,17 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         
-        
-        low = float(inf)
-        high = 0
         max_profit = 0
         
-        while high < len(prices):
+        low = 0
+        
+        for high in range(1,len(prices)):
             
-            #if we find a new low, update lowest buying point
-            if prices[high] < low:
-                low = prices[high]
-            else:
-                max_profit = max(prices[high]-low, max_profit)
-            
-            high += 1
-            
+            if prices[high] > prices[low]:
+                sell = prices[high] - prices[low]
+                max_profit = max(sell,max_profit)
+                
+            elif prices[high] < prices[low]:
+                low = high
+                
         return max_profit
