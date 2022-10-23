@@ -8,20 +8,12 @@ class Solution:
             left = nums[:i]
             right = nums[i+1:]
             
-            left_sum = 0
-            right_sum = 0
-            
-            #if len(left) != 1:
             left_sum = sum(left)
                 
-            #if len(right) != 1:
             right_sum = sum(right)
                 
             if left_sum == right_sum:
-                print(left)
-                print(right)
                 return i
             
-            
-            
+        
         return -1
