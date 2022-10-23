@@ -8,6 +8,8 @@ class Solution:
         sorted_intervals = sorted(intervals, key = lambda x: x[0])
         
         #two pointer technique to check for interval over laps
+        #over lap occurs when second interval start time is less than first end time OR
+        #second interval end time is less than first end time
         
         first = 0
         second = 1
@@ -17,7 +19,7 @@ class Solution:
             int1_start, int1_end = sorted_intervals[first]
             int2_start, int2_end = sorted_intervals[second]
             
-            #if there is overlap return false
+            #if there is overlap return false 
             if int2_end < int1_end or int2_start < int1_end:
                 return False
             
