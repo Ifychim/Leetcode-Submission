@@ -18,7 +18,7 @@ class Solution:
             int2_start, int2_end = sorted_intervals[second]
             
             #if there is overlap return false
-            if int2_end - int1_end <= 0 or int2_start < int1_end:
+            if int2_end < int1_end or int2_start < int1_end:
                 return False
             
             first += 1
