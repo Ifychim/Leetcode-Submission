@@ -3,15 +3,8 @@ class Solution:
         if n <= 0:
             return False
         
-        while n != 1:
-            
+        while (n % 3 == 0):
             n /= 3
-            
-            temp = str(n)
-            temp = temp.split(".")
-            if int(temp[1]) != 0:
-                break
-            
             
         if n == 1:
             return True
