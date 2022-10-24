@@ -7,6 +7,7 @@ import math
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
+        #O(n) time, O(n) space
         arr = []
         curr = head
         
@@ -15,4 +16,5 @@ class Solution:
             curr = curr.next
         
         return arr[math.floor(len(arr)/2)]
+        
         
