@@ -12,6 +12,7 @@ class Solution:
         while curr != None:
             mem_locs.add(hex(id(curr)))
             curr = curr.next
+        
         curr = headB
         
         while curr != None:
