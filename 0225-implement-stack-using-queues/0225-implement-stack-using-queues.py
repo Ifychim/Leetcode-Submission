@@ -4,15 +4,15 @@ class MyStack:
         self.main_q = []
         
     def push(self, num: int) -> None:
-        self.main_q.append(num)
+        self.main_q.insert(len(self.main_q), num)
     
     def pop(self) -> int:
         item = self.main_q[len(self.main_q)-1]
         del self.main_q[len(self.main_q)-1]
-        
         return item
     
     def top(self) -> object:
+        print(self.main_q)
         return self.main_q[len(self.main_q)-1]
    
     
