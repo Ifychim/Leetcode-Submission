@@ -7,7 +7,7 @@ class Solution:
         
         if n == 1:
             return True
-        elif n == 4:
+        elif n ==2 or n==3 or n== 4:
             return False
         
         for i in range(0,len(n_str)):
