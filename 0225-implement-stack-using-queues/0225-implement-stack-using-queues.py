@@ -7,17 +7,15 @@ class MyStack:
         self.main_q.insert(len(self.main_q), num)
     
     def pop(self) -> int:
-        item = self.main_q[len(self.main_q)-1]
+        top = self.main_q[len(self.main_q)-1]
         del self.main_q[len(self.main_q)-1]
-        return item
+        return top
     
     def top(self) -> object:
-        print(self.main_q)
         return self.main_q[len(self.main_q)-1]
    
     
     def empty(self) -> bool:
-        print(self.main_q)
         if len(self.main_q) == 0:
             return True
         else:
