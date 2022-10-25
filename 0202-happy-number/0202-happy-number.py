@@ -1,13 +1,16 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
         
-        res = 0
-        if n==1:
-            return True
-        elif n==4:
-            return False
-        for i in str(n):
-            res += int(i) * int(i)
-        n = res
+        n_str = str(n)
         
-        return Solution.isHappy(self,n)
+        res = 0
+        
+        if n == 1:
+            return True
+        elif n == 4:
+            return False
+        
+        for i in range(0,len(n_str)):
+            res += int(n_str[i]) * int(n_str[i])
+         
+        return self.isHappy(res)
