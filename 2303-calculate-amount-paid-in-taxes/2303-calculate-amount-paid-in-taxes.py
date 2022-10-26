@@ -17,13 +17,12 @@ class Solution:
             
             start = upper
         
-        i = 0
-        for r in ranges.values():
+        for i,r in enumerate(ranges.values()):
             
             lower, upper = r
             
             possible_dollars = upper - lower
-            print(possible_dollars, income)
+            
             if income > 0:
                 if possible_dollars <= income:
                     result += possible_dollars * (brackets[i][1]/100)
@@ -32,7 +31,6 @@ class Solution:
                     result += income * (brackets[i][1]/100)
                     income -= possible_dollars
                 
-            i+= 1
-            
+  
         return result
         
