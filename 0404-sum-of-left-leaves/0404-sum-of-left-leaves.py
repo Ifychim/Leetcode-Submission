@@ -24,9 +24,11 @@ class Solution:
                 
                 if node:
                     
+                    #if node has a left node, check to see if the left node is a leaf.
                     if node.left:
                         q.append(node.left)
                         
+                        #Left node is a leaf if it does not have a left or right child
                         if node.left.left == None and node.left.right == None:
                             result += node.left.val
                             
