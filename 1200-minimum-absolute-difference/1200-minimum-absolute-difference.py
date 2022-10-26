@@ -5,10 +5,11 @@ class Solution:
         arr = sorted(arr)
         min_diff = float('inf')
         
+        #find global min diff
         for i in range(0,len(arr)-1):
-            
             min_diff = min(abs(arr[i+1] - arr[i]), min_diff)
         
+        #find all pairs that have global min diff
         for i in range(0,len(arr)-1):
             diff = arr[i+1] - arr[i]
             if diff == min_diff:
