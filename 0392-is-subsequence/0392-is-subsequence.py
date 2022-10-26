@@ -1,13 +1,15 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         
-        #if len(s) > len(t): return False
-        #elif len(s) == 0: return True
+        if len(s) > len(t): return False
+        elif len(s) == 0: return True
         
         t_ptr = 0
         s_ptr = 0
         
-        #
+        #two pointers to scan each string. Iterate until either is done.
+        #"t" scanner increments every iteration, "s" scanner only increments when there is a match.
+        
         while t_ptr < len(t) and s_ptr < len(s):
             
             if t[t_ptr] == s[s_ptr]:
