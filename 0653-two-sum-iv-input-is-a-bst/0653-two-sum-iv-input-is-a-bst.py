@@ -8,7 +8,7 @@ from collections import deque
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         
-        compliment_dict = {} #compliment val
+        compliment_dict = {} #val:compliment
         
         q = deque()
         q.append(root)
@@ -23,16 +23,17 @@ class Solution:
                 
                 if node:
                     compliment = k - node.val
-                    if node.val in compliment_dict:
+                    
+                    if compliment in compliment_dict:
                         return True
-                    compliment_dict[compliment] = node.val
+                    
+                    compliment_dict[node.val] = compliment
                     
                     if node.left:
                         q.append(node.left)
                     if node.right:
                         q.append(node.right)
-                
-        print(compliment_dict)        
+                                       
         return False
         
         
