@@ -19,6 +19,6 @@ class Solution:
                     year_populations[i] += 1
         
         result = sorted(year_populations.items(), key = lambda x: -x[1])
-        print(result)
+    
         return result[0][0]
         
