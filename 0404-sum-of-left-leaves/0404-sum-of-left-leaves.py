@@ -26,6 +26,7 @@ class Solution:
                     
                     if node.left:
                         q.append(node.left)
+                        
                         if node.left.left == None and node.left.right == None:
                             result += node.left.val
                             
