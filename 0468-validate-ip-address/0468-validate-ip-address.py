@@ -1,6 +1,8 @@
 class Solution:
     def validIPAddress(self, queryIP: str) -> str:
- 
+        #O(N^2) time worst case 
+        #O(N) time avg case, 
+        #O(N) space
         ipv4, ipv6 = False, False
         
         if "." in queryIP:
