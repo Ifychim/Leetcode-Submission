@@ -21,8 +21,10 @@ class Solution:
                 
                 if node:
                     level.append(node.val)
-                    q.append(node.left)
-                    q.append(node.right)
+                    if node.left:
+                        q.append(node.left)
+                    if node.right:
+                        q.append(node.right)
                     
             if len(level) > 0:
                 result.append(level)
