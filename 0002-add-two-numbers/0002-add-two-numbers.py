@@ -30,9 +30,9 @@ class Solution:
             l2_num += str(num)
             
         addition = int(l1_num) + int(l2_num)
-        addition_arr = []
+        addition_arr = deque()
         
         for num in str(addition):
-            addition_arr.insert(0,num)
+            addition_arr.appendleft(num)
         
         return ListNode(val=','.join(addition_arr))
