@@ -35,7 +35,8 @@ class Solution:
     def validate_ipv4(self, ip_address:str) -> bool:
         
         ip_address = ip_address.split('.')
-    
+        
+        #edge-cases
         if '' in ip_address: return False
         elif len(ip_address) != 4: return False
         
@@ -57,6 +58,7 @@ class Solution:
         
         ip_address = ip_address.split(':')
         
+        #edge-cases
         if '' in ip_address: return False
         elif len(ip_address) != 8: return False
         
@@ -65,7 +67,6 @@ class Solution:
             entire_digit = str(digits)
             
             if len(entire_digit) < 1 or len(entire_digit) > 4:
-                
                 return False
             
         return True
