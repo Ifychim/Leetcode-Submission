@@ -7,6 +7,7 @@ class Solution:
         for i in range(0,n):
             nums1[(len(nums1)-n) + i] = nums2[i]
             
-        nums1.sort()
+        #in-place sorting of nums1
+        return nums1.sort()
      
     
