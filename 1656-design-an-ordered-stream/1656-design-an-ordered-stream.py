@@ -3,18 +3,17 @@ class OrderedStream:
     def __init__(self, n: int):
         
         self.arr = [None]*(n+1)
-        self.lastIdx = 0
+        self.idx = 0
         
     def insert(self, idKey: int, value: str) -> List[str]:
         
         self.arr[idKey-1] = [idKey,value]
         chunk = []
         
-        while(self.arr[self.lastIdx] != None):
-            chunk.append(self.arr[self.lastIdx][1])
-            self.lastIdx += 1 
-            
-        #print(chunk)     
+        while(self.arr[self.idx] != None):
+            chunk.append(self.arr[self.idx][1])
+            self.idx += 1 
+     
         return chunk
 
 
