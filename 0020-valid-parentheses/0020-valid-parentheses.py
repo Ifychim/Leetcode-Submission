@@ -1,8 +1,8 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         
-        
-    #closed brackets encountered must match *dictionary* last open bracket encountered *stack for open brackets*
+        #closed brackets encountered must match *dictionary* 
+        #last open bracket encountered *stack*
 
         open_stack = []
         
@@ -19,7 +19,8 @@ class Solution:
                 else:
                     return False
 
-#every open bracket must have a corresponding closed bracket.
+        #every open bracket must have a corresponding closed bracket.
+
         if len(open_stack) == 0:
             return True
         else:
