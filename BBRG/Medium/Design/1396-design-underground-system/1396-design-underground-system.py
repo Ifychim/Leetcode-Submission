@@ -1,43 +1,48 @@
-from collections import defaultdict
 class UndergroundSystem:
     
-    def __init__(self):
-        self.user_data = defaultdict(list) #cust_id:[id,station,time] -> Handles users in system
-        self.station_data = [] #[startStation,endStation, time_difference] -> Holds checkout data
-        
-    def checkIn(self, id: int, stationName: str, time: int) -> None:
-        
-        #if customer not in system check them in, else do nothing
-        if id not in self.user_data:
-            self.user_data[id].append(id)
-            self.user_data[id].append(stationName)
-            self.user_data[id].append(time)
+    def __init__(self,) -> object:
+        self.cust_data = {} #id:[id,stationName, time]
+        self.checkout_data = [] #[startStation, endStation, TimeDiff]
+    def checkIn(self, id: int, stationName: str, t: int) -> None:
+    
+        if id not in self.cust_data:
+            self.cust_data[id] = [id,stationName,t]
+           
+            return
         else:
             return
-    
-    def checkOut(self, id: int, stationName: str, time: int) -> None:
         
-    #if customer is in the system and then check them out & collect data(start,end,time_diff), else do nothing
-        if id in self.user_data:
-            self.station_data.append([self.user_data[id][1], stationName, time - self.user_data[id][2]])
-            del self.user_data[id]
+    def checkOut(self, id: int, stationName: str, t: int) -> None:
+        #if customer is checked in, check them out
+        if id in self.cust_data:
+            time_diff = t - self.cust_data[id][2]
+            start_station, end_station = self.cust_data[id][1], stationName 
+            
+            self.checkout_data.append([start_station, end_station, time_diff])
+            del self.cust_data[id]
+            return
         else:
             return
     
     def getAverageTime(self, startStation: str, endStation: str) -> float:
+        #iterate through out checkout data, sum up all time differences then divide by #events.
+        avg = 0
+        num_events = 0
         
-        #sum of all time differences / #times
-        times = []
-    
-        for station_data in self.station_data:
-            start, end, time_diff = station_data
+        for event in self.checkout_data:
+            start_station, end_station, time_diff = event
             
-            if startStation == start and endStation == end:
-                times.append(time_diff)
+            if start_station == startStation and end_station == endStation:
                 
-        return sum(times) / len(times)
-    
-    
+                num_events += 1
+                avg += time_diff
+                
+       
+        return avg/num_events
+        
+
+
+
 # Your UndergroundSystem object will be instantiated and called as such:
 # obj = UndergroundSystem()
 # obj.checkIn(id,stationName,t)
