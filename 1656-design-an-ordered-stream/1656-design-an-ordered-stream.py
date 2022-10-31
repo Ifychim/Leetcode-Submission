@@ -16,7 +16,7 @@ class OrderedStream:
         chunk = []
         
         #returns largest chunk(longest consecutive idxs holding a value)
-        
+        #iterate through stream and build chunk at indices that arent 0-based
         for i in range(self.ptr, self.n):
             if self.stream[self.ptr] != 0:
                 chunk.append(self.stream[self.ptr])
