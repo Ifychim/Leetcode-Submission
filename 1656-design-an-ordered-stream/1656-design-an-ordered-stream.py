@@ -4,8 +4,6 @@ class OrderedStream:
         
         #our stream should be able to hold n values 
         self.stream = [0]*(n)
-        self.n = n
-        
         self.ptr = 0
        
     def insert(self, idKey: int, value: str) -> List[str]:
@@ -16,7 +14,7 @@ class OrderedStream:
         chunk = []
         
         #returns largest chunk(longest consecutive idxs holding a value)
-        #iterate through stream and build chunk at indices that arent 0-based
+        #iterate through stream (using ptr) and build chunk at indices that arent 0-based
         for i in range(self.ptr, len(self.stream)):
             if self.stream[self.ptr] != 0:
                 chunk.append(self.stream[self.ptr])
