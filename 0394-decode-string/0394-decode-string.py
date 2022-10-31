@@ -1,4 +1,5 @@
 class Solution:
+    #O(n) time & O(n) space
     def decodeString(self, s: str) -> str:
         stack = []
         
