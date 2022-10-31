@@ -9,10 +9,7 @@ class Solution:
         
         sorted_intervals = sorted(intervals, key = lambda x: x[0])
         '''
-        overlaps occurs when:
-        start time first >=  start time second, 
-        end time first > start time second,
-        end time first > end time second
+        4 cases of overlaps: draw time diagram
         '''
         fast = 1
         slow = 0
