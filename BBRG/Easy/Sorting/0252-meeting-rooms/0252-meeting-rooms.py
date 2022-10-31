@@ -1,30 +1,33 @@
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
+
+        if len(intervals) == 1: return True
         
-        if len(intervals) == 1:
-            return True
         
-        #sort intervals by starting time,
+        #we need to check if there are any overlaps between the time intervals
+        #sorting the input in an ascending order by start time is the crucial first step
+        
         sorted_intervals = sorted(intervals, key = lambda x: x[0])
-        
-        #two pointer technique to check for interval over laps
-        #over lap occurs when second interval start time is less than first end time OR
-        #second interval end time is less than first end time
-        
-        first = 0
-        second = 1
-        
-        while second < len(sorted_intervals):
-            
-            int1_start, int1_end = sorted_intervals[first]
-            int2_start, int2_end = sorted_intervals[second]
-            
-            #if there is overlap return false 
-            if int2_end < int1_end or int2_start < int1_end:
-                return False
-            
-            first += 1
-            second += 1
-            
+        '''
+        4 cases of overlaps: draw time diagram
+        '''
+        fast = 1
+        slow = 0
         print(sorted_intervals)
+        while fast < len(sorted_intervals):
+            
+            first_interval = sorted_intervals[slow]
+            first_start, first_end = first_interval
+            
+            second_interval = sorted_intervals[fast]
+            second_start, second_end = second_interval
+            
+            if first_start < second_start and first_end > second_end: return False
+            elif first_start < second_start and first_end > second_start: return False
+            elif first_start >= second_start and first_end > second_end: return False
+            elif first_start == second_start and first_end == second_end: return False
+            else:
+                fast += 1
+                slow += 1
+        
         return True

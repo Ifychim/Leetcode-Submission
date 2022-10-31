@@ -2,21 +2,26 @@ class OrderedStream:
 
     def __init__(self, n: int):
         
-        #n+1 to ensure our streams can take n values
-        self.arr = [0]*(n+5)
-        self.idx = 0
+        #our stream should be able to hold n values 
+        self.stream = [0]*(n)
+        self.n = n
         
+        self.ptr = 0
+       
     def insert(self, idKey: int, value: str) -> List[str]:
-        #insert k,v pair into stream
-        self.arr[idKey-1] = [idKey,value]
         
-        #find largest possible chunk of inserted values starting from first position
+        #inserts pair into stream, since keys are from 1-n, we insert at position key-1
+        self.stream[idKey-1] = value
+        
         chunk = []
         
-        while(self.arr[self.idx] != 0):
-            chunk.append(self.arr[self.idx][1])
-            self.idx += 1 
-     
+        #returns largest chunk(longest consecutive idxs holding a value)
+        #iterate through stream and build chunk at indices that arent 0-based
+        for i in range(self.ptr, self.n):
+            if self.stream[self.ptr] != 0:
+                chunk.append(self.stream[self.ptr])
+                self.ptr += 1
+        
         return chunk
 
 
