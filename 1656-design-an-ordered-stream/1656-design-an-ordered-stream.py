@@ -20,7 +20,8 @@ class OrderedStream:
             if self.stream[i] != 0:
                 chunk.append(self.stream[self.ptr])
                 self.ptr += 1
-            else:
+            
+            if self.stream[i] == 0:
                 break
         
         return chunk
