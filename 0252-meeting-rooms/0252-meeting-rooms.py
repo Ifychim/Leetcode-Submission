@@ -9,7 +9,7 @@ class Solution:
         
         sorted_intervals = sorted(intervals, key = lambda x: x[0])
         '''
-        4 cases of overlaps: draw time diagram
+        3 cases of overlaps: draw time diagram
         '''
         fast = 1
         slow = 0
@@ -24,7 +24,6 @@ class Solution:
             
             if first_start < second_start and first_end > second_end: return False
             elif first_start < second_start and first_end > second_start: return False
-            #elif first_start >= second_start and first_end > second_end: return False
             elif first_start == second_start and first_end == second_end: return False
             else:
                 fast += 1
