@@ -16,6 +16,8 @@ class Solution:
             #end value of most recently added interval depicts overlap.
             prev_end = result[-1][1]
             
+            #if most recently added intervals' end is >= current intervals start, an overlap occurs.
+            #so just update most recently added intervals' end value
             if prev_end >= curr_start:
                 result[-1][1] = max(curr_end, prev_end)
             else:
