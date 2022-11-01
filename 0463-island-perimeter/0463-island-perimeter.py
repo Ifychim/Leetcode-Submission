@@ -10,15 +10,14 @@ class Solution:
         
         visited_islands = set() #set of unique islands we have visted via dfs
         
-        perimeter = 0
-        
         for row in range(0,len(grid)):
             for col in range(0, len(grid[0])):
                 if grid[row][col]:
-                    return self.dfs(row, col, grid, visited_islands, perimeter)
+                    return self.dfs(row, col, grid, visited_islands)
         
     
-    def dfs(self, row, col , grid, visited_islands, perimeter):
+    def dfs(self, row, col , grid, visited_islands):
+        
         #Base Case(s)
         
         #Out-Of-Bounds
@@ -29,12 +28,13 @@ class Solution:
         elif (row,col) in visited_islands: return 0
         
         visited_islands.add((row,col))
-        #dfs in all 4 directions to compute perimeter (left,right,up_down)
         
-        perimeter = self.dfs(row,col-1,grid, visited_islands, perimeter)
-        perimeter += self.dfs(row,col+1,grid, visited_islands, perimeter)
-        perimeter += self.dfs(row-1,col,grid, visited_islands, perimeter)
-        perimeter += self.dfs(row+1,col,grid, visited_islands, perimeter)
+        #dfs in all 4 directions to compute perimeter (left,right,up_down)
+        perimeter = 0
+        perimeter += self.dfs(row,col-1,grid, visited_islands)
+        perimeter += self.dfs(row,col+1,grid, visited_islands)
+        perimeter += self.dfs(row-1,col,grid, visited_islands)
+        perimeter += self.dfs(row+1,col,grid, visited_islands)
         
         return perimeter
         
