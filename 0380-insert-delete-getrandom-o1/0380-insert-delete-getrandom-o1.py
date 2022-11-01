@@ -18,12 +18,13 @@ class RandomizedSet:
         
         if val in self.randomSet:
             
-            idx = self.randomSet[val]
+            new_idx = self.randomSet[val]
             
             last_val = self.vals[-1]
-            self.vals[idx] = last_val
+            self.vals[new_idx] = last_val
             self.vals.pop()
-            self.randomSet[last_val] = idx
+            
+            self.randomSet[last_val] = new_idx
             
             del self.randomSet[val]
             return True
@@ -32,7 +33,6 @@ class RandomizedSet:
             return False
     
     def getRandom(self) -> int:
-
         return random.choice(self.vals)
         
 
