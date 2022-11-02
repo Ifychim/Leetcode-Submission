@@ -28,11 +28,11 @@ class Codec:
             while s[j] != "#":
                 j += 1
             
-            digit = int(s[i:j])
+            length = int(s[i:j])
  
-            encoded_str_list.append(s[j+1:j+1+digit])
+            encoded_str_list.append(s[j+1:j+1+length])
             
-            i = j+digit+1
+            i = j+1+length
             
         return encoded_str_list
 
