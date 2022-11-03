@@ -18,16 +18,15 @@ class Solution:
             length += 1
             most_freq = max(alphabet_count.values())
             
+            #check if substr is valid
             if length - most_freq <= k:
                 high += 1
             else:
                 while length - most_freq > k:
-                    print(low, high, result, length)
                     alphabet_count[s[low]] -= 1
                     low += 1
                     length -= 1
-
-                
+                    
             result = max(result, length)
             
         return result
