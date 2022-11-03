@@ -7,15 +7,8 @@ class Solution:
         #O(n^2) iteration and creating dict.
         
         s1_count = Counter(s1)
-        
-        #for char in s1:
-           # s1_count[char] = s1_count.get(char, 0) + 1
             
-        low = 0
-        
-        
         for high in range(len(s2)):
-            
             
             temp = Counter(s2[high:high+len(s1)])
             
