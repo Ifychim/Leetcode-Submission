@@ -7,7 +7,7 @@ class Solution:
         alphabet_count = {} #to count most frequent element in our substr
         
         low = 0 #sliding window
-        high = 0 #sliding window
+    
         
         result = 0
         length = 0
@@ -26,8 +26,7 @@ class Solution:
                     alphabet_count[s[low]] -= 1
                     low += 1
                     length -= 1
-                    if length == result:
-                        break
+
                 
             result = max(result, length)
             
