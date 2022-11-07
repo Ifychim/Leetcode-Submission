@@ -33,7 +33,8 @@ class Solution:
             new_node.random = old_to_new[cur.random]
 
             cur = cur.next
-        
+            
+        #map the original linked lists' head to copy.
         return old_to_new[head]
         
         
