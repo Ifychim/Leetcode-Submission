@@ -8,6 +8,20 @@ from collections import deque
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
+        #pre-order dfs
+        
+        #base-cases
+        if p == None and q == None: return True
+        if p != None and q == None: return False
+        if p == None and q != None: return False
+        if p.val != q.val: return False
+        
+        return(self.isSameTree(p.left, q.left) and
+        self.isSameTree(p.right, q.right))
+        
+        '''
+        sol'n 2
+        
         #bfs with two queues
         
         p_deque, q_deque = deque(), deque()
@@ -39,7 +53,7 @@ class Solution:
                     q_deque.append(q_node.right)
 
         return True
-                        
+         '''       
                     
                 
                 
