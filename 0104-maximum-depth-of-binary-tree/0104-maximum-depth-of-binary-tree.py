@@ -9,5 +9,7 @@ class Solution:
         
         if root == None:
             return 0
+        left_tree = self.maxDepth(root.left)
+        right_tree = self.maxDepth(root.right)
         
-        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right) )
+        return 1 + max(left_tree, right_tree)
