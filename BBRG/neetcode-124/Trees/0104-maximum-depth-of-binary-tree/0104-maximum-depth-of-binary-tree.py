@@ -9,7 +9,17 @@ class Solution:
         
         if root == None:
             return 0
-        left_tree = self.maxDepth(root.left)
-        right_tree = self.maxDepth(root.right)
         
-        return 1 + max(left_tree, right_tree)
+        stack = [[root,1]]
+        res = 1
+        
+        while stack:
+            
+            node,depth = stack.pop()
+            
+            if node:
+                res = max(res,depth)
+                stack.append([node.left, depth +1])
+                stack.append([node.right, depth +1])
+                
+        return res
