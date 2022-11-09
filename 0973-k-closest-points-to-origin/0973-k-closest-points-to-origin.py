@@ -4,8 +4,8 @@ class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         
         #intuition is to find the distance between the given points and the origin
-        #we can then store these these distances in a max heap. 
-        #we can then return the first k points
+        #we then store these these distances in a max-heap
+        #then, shrink our heap to a size of k and return the remaining points
         
         closest_points = []
         result = []
@@ -16,7 +16,7 @@ class Solution:
             x, y = point
             
             origin_distance = math.sqrt((math.pow(x,2) + math.pow(y,2)))
-            print(origin_distance)
+          
             heapq.heappush(closest_points, (origin_distance * -1, point))
             
         while len(closest_points) > k:
