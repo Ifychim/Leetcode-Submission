@@ -3,6 +3,7 @@ import heapq
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
+        #we can find the kth largest number by storing the input in a min-heap
         heapq.heapify(nums)
         self.heap = nums
         self.k = k
@@ -10,16 +11,13 @@ class KthLargest:
 
     def add(self, val: int) -> int:
         
+        #Add new incoming element to heap and
         heapq.heappush(self.heap, val)
-        temp = self.heap
+    
+        while len(self.heap) > self.k:
+            heapq.heappop(self.heap)
         
-        
-        while len(temp) > self.k:
-            heapq.heappop(temp)
-        
-        return temp[0]
-        
-        #return temp[len(temp)-self.k]
+        return self.heap[0]
         
 
 
