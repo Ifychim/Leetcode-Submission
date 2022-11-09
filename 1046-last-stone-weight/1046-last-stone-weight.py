@@ -20,6 +20,7 @@ class Solution:
             else:
                 new_stone = abs(y-x)
                 heapq.heappush(max_stones, new_stone * -1)
-                
+        
+        
         return abs(max_stones[0])
         
