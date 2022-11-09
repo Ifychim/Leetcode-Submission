@@ -19,7 +19,6 @@ class Solution:
                 heapq.heappush(max_stones, 0)
             else:
                 new_stone = abs(y-x)
-                print(new_stone)
                 heapq.heappush(max_stones, new_stone * -1)
                 
         return abs(max_stones[0])
