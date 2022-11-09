@@ -22,7 +22,7 @@ class Solution:
         
         dfs(root)
         
-        result = inorder[:k][-1]#1,2,3,4
+        result = inorder[k-1]#1,2,3,4
         return result
         
             
