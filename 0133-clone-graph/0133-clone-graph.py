@@ -10,12 +10,16 @@ from collections import defaultdict
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         
+        #idea is to use pre-order dfs to make a deep copy of each node and its neighbors. 
+        #using a map to map old node to the new copy node handles the undirected aspect of the graph.
+        
         node_map = {} #used to map old node to copy as we use dfs to traverse
         
         def dfs(node):
             if node == None:
                 return
             
+            #if copy exists, return the copy
             if node in node_map:
                 return node_map[node]
             
