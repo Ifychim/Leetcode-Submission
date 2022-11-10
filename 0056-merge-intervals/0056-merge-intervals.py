@@ -20,15 +20,7 @@ class Solution:
             top_start, top_end = top
             curr_start, curr_end = sorted_intervals[i]
             
-            if top_start == curr_start or top_end == curr_end or top_end == curr_start:
-                merged = [min(top_start,curr_start), max(top_end,curr_end)]
-                result.pop()
-                result.append(merged)
-            elif top_start < curr_start and top_end > curr_start:
-                merged = [min(top_start,curr_start), max(top_end,curr_end)]
-                result.pop()
-                result.append(merged)
-            elif top_start < curr_start and top_end > curr_end:
+            if top_end >= curr_start:
                 merged = [min(top_start,curr_start), max(top_end,curr_end)]
                 result.pop()
                 result.append(merged)
