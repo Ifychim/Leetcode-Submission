@@ -18,10 +18,11 @@ class Solution:
             first_start, first_end = first
             second_start, second_end = second
             
-            #three types of overlaps
-            if first_start == second_start or first_end == second_end: return False
-            elif first_start < second_start and first_end > second_start: return False
-            elif first_start < second_start and first_end > second_end: return False
+            #three types of overlaps but, can be simplified by just looking at end values
+            if first_end > second_start: return False
+            #if first_start == second_start or first_end == second_end: return False
+            #elif first_start < second_start and first_end > second_start: return False
+            #elif first_start < second_start and first_end > second_end: return False
         
             
             a += 1
