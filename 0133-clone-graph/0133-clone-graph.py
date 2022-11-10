@@ -15,6 +15,7 @@ class Solution:
         def dfs(node):
             if node == None:
                 return
+            
             if node in node_map:
                 return node_map[node]
             
@@ -27,6 +28,6 @@ class Solution:
                 
             return copy
         
-        return dfs(node)
-        
+        deep_copy = dfs(node)
+        return deep_copy
             
