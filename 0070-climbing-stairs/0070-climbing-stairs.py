@@ -1,12 +1,12 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
         
-        one, two = 1,1
+        dp = [0] *(n+1)
+        #first two base cases
+        dp[0] = 1
+        dp[1] = 1
         
-        for i in range(0, n-1):
-            #adding two previous values and getting new result
-            temp = one
-            one = one + two
-            two = temp
-            
-        return one
+        for i in range(2, n+1):
+            dp[i] = dp[i-1] + dp[i-2]
+    
+        return dp[n]
