@@ -1,3 +1,4 @@
+import heapq
 class Leaderboard:
     
     def __init__(self):
@@ -17,16 +18,19 @@ class Leaderboard:
         
     def top(self, k:int):
         
-        sorted_leaderboard = sorted(self.leaderboard.items(), key = lambda x: -x[1]) #sort by scores in desc
-        
-        top_k = sorted_leaderboard[:k]
-        
         res = 0
+        heap = []
+        tracker = k
         
-        for player,score in top_k:
-            res += score
+        #create a max heap
+        for val in self.leaderboard.values():
+            heapq.heappush(heap, -val)
+
+        while tracker > 0:
+            res += heapq.heappop(heap)
+            tracker -= 1
         
-        return res
+        return abs(res)
             
         
         
