@@ -1,12 +1,12 @@
 class OrderedStream:
 
     def __init__(self, n: int):
-        self.stream = [0] * (n + 1)
-        self.ptr = 0
+        self.stream = [0] * (n + 2)
+        self.ptr = 1
         
     def insert(self, idKey: int, value: str) -> List[str]:
         
-        self.stream[idKey-1] = [idKey,value] #we need to offset by one since ids are 1 idxed
+        self.stream[idKey] = [idKey,value] #we need to offset by one since ids are 1 idxed
       
         res = []
         
