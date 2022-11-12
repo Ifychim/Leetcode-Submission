@@ -23,14 +23,3 @@ class Solution:
             counter -=1
             
         return res
-        '''
-        sorted_freq = sorted(freq_map.items(), key = lambda x: (-x[1],x[0]))
-        
-        res = []
-        
-        for i in range(0,k):
-            res.append(sorted_freq[i][0])
-            
-        return res
-        '''
-        
