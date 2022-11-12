@@ -1,13 +1,14 @@
 class OrderedStream:
 
     def __init__(self, n: int):
-        self.stream = [0] * (n + 2)
+        self.stream = [0] * (n + 2) #n+2 to prevent overflow since array is 1 indexed
         self.ptr = 1
+        
         
     def insert(self, idKey: int, value: str) -> List[str]:
         
-        self.stream[idKey] = [idKey,value] #we need to offset by one since ids are 1 idxed
-      
+        self.stream[idKey] = [idKey,value]
+     
         res = []
         
         while self.stream[self.ptr] != 0:
