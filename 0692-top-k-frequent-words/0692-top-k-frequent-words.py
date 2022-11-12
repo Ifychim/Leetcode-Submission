@@ -1,3 +1,5 @@
+import heapq
+
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
         
@@ -5,7 +7,23 @@ class Solution:
         
         for word in words:
             freq_map[word] = freq_map.get(word,0) + 1
+        
+        heap, res = [], []
+        
+        for key,val in freq_map.items():
             
+            heapq.heappush(heap, (-val, ord(key[0]), key))
+        
+        counter = k
+        
+        while counter > 0:
+            val,ascii_val,word = heapq.heappop(heap)
+            res.append(word)
+
+            counter -=1
+            
+        return res
+        '''
         sorted_freq = sorted(freq_map.items(), key = lambda x: (-x[1],x[0]))
         
         res = []
@@ -14,3 +32,5 @@ class Solution:
             res.append(sorted_freq[i][0])
             
         return res
+        '''
+        
