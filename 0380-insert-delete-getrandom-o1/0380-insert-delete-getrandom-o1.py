@@ -22,15 +22,13 @@ class RandomizedSet:
         
         #we need to store the idx we want to remove from the array
         if val in self.val_map:
-            
-            removal_idx = self.val_map[val]
-           
-            #swapping elements in list and poppint
+        
+            #swapping element to be removed with last position & pop in list and poppint
             last_val = self.val_list[-1]
+            removal_idx = self.val_map[val]
             self.val_list[removal_idx] = last_val
             self.val_list.pop()
         
-            
             #updating dict key/vals and deleting element to be removed from map 
             self.val_map[last_val] = removal_idx
             del self.val_map[val]
