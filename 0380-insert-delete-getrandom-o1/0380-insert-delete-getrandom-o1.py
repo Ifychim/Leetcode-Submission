@@ -46,10 +46,3 @@ class RandomizedSet:
         rand_idx = random.randint(0,len(self.val_list)-1)
         
         return self.val_list[rand_idx]
-
-
-# Your RandomizedSet object will be instantiated and called as such:
-# obj = RandomizedSet()
-# param_1 = obj.insert(val)
-# param_2 = obj.remove(val)
-# param_3 = obj.getRandom()
