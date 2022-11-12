@@ -29,9 +29,7 @@ class RandomizedSet:
             last_val = self.val_list[-1]
             self.val_list[removal_idx] = last_val
             self.val_list.pop()
-            
-            #[1, 4, 3] [1,2,3,4]
-            #{1:0, 3:2, 4:1} {1:0, 2:1, 3:2, 4:3}
+        
             
             #updating dict key/vals and deleting element to be removed from map 
             self.val_map[last_val] = removal_idx
