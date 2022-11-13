@@ -14,9 +14,7 @@ class Solution:
         curr = head
         
         while curr:
-            
             new_node = Node(curr.val)
-            
             old_to_new[curr] = new_node
             
             curr = curr.next
@@ -27,7 +25,6 @@ class Solution:
             new_node = old_to_new[curr]
             new_node.next = old_to_new[curr.next]
             new_node.random = old_to_new[curr.random]
-
             
             curr = curr.next
             
