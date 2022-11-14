@@ -23,11 +23,11 @@ class Solution:
                     k = stack.pop() + k
 
                 k = int(k)
-              #multiply the substr k times and then append it to our stack for future processing
                 
+              #multiply the substr k times and then append it to our stack for future processing
                 sub_str *= k
                 stack.append(sub_str)
-                #print(stack)
+                
                 
                 
         return ''.join(stack)
