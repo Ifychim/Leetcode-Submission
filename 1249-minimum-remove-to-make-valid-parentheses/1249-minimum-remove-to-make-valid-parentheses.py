@@ -34,7 +34,7 @@ class Solution:
                     #mark element for deletion
                     new_str[i] = 0        
             
-        
+        #build result
         for char in new_str:
             if char != 0:
                 result += char
