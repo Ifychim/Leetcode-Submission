@@ -7,21 +7,18 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
-        min_ = -float('inf')
-        max_ = float('inf')
         
-        
-        
-        def dfs(root, min_bounds, max_bounds):
+        def dfs(root, min_bound = -float('inf'), max_bound = float('inf')):
             
+            #base case we can say a null node is a valid BST
             if root == None:
                 return True
             
-            if not (root.val < max_bounds and root.val > min_bounds):
+            if root.val <= min_bound or root.val >= max_bound:
                 return False
             
-            #post order
-            return(dfs(root.left, min_bounds, root.val) and
-            dfs(root.right, root.val, max_bounds))
+            return (dfs(root.left, min_bound, root.val) 
+                    and dfs(root.right, root.val, max_bound))
             
-        return dfs(root, min_, max_)
+        return dfs(root)
+        
