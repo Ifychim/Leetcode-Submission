@@ -12,7 +12,7 @@ class Solution:
         sorted_intervals = sorted(intervals, key=lambda x: x[0]) #sorted by start times
         
         heapq.heappush(min_times,sorted_intervals[0][1])
-        print(sorted_intervals)
+    
         for i in range(1,len(sorted_intervals)):
             
             curr = sorted_intervals[i]
