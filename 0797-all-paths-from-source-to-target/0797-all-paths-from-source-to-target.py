@@ -21,7 +21,7 @@ class Solution:
             if path[-1] == target:
                 result.append(path)
             else:
-                
+#if the last element in path is not equal to our target, we need to find all possible neighbors of current node and add them to the path
                 for neighbor in graph[path[-1]]:
                     queue.append(path + [neighbor])
     
