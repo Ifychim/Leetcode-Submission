@@ -1,31 +1,49 @@
 from collections import deque
+
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
-    
-        source = [0]
+        
+        #we need to kick bfs off with a queue that is initialized with the source
+        
+        source = 0
         target = len(graph)-1
         
-        result = []
-        
-        #start of with source in queue
         queue = deque()
-        queue.append(source)
+        queue.append([source])
         
-        
-        #while we have nodes to explore, we pop from queue and check if last element is equal to target
+        result = []
+
+#if the last element in the queue is equal to the target, we can append the path thus far to result else,
+#we need to traverse all the neighbors of our current node and add all possible paths to our queue
+
         while queue:
-            idx = 0
             
             path = queue.popleft()
-           
-            if path[-1] == target:
+            last_element = path[-1]
+            
+            if last_element == target:
                 result.append(path)
             else:
-#if the last element in path is not equal to our target, we need to find all possible neighbors of current node and add them to the path
-                for neighbor in graph[path[-1]]:
+                for neighbor in graph[last_element]:
+                    #take current path and add neighbor to it
                     queue.append(path + [neighbor])
-    
-                
-        return result  
-            
+                    
+                    
+        return result
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         

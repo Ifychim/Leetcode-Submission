@@ -11,22 +11,23 @@ class Node:
 class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
         
-        stack = [] #stack holds sub-list of nodes which have children pointers pointing to another node
         curr = head
+        stack = []
         
         while curr:
-            #if our current node has a child, pointing to another level do 2 things:
-            #1 - store sub list in stack
-            #2 - update pointers of curr. (next = child, child.prev = curr, child = none)
-            if curr.child:
+              
+            #if current node is pointing to a none-null child, we need to flatten it
+            if curr.child != None:
+                #if there is a subsequent link, store it to be appended to linked list at a later point
                 if curr.next:
                     stack.append(curr.next)
+                
+                #3 pointers need to be updated: next, childs' prev, child of curr
                 curr.next = curr.child
                 curr.next.prev = curr
                 curr.child = None
-                
-#if we reach the end of our list, we want to append sub-lists which were removed from earlier.
-#and update pointers
+            
+        #once we hit tail node, we need to see if there are some links to be appended to the first level
             if curr.next == None and len(stack) > 0:
                 curr.next = stack.pop()
                 curr.next.prev = curr
@@ -34,3 +35,4 @@ class Solution:
             curr = curr.next
             
         return head
+        
