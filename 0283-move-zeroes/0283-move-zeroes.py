@@ -5,7 +5,7 @@ class Solution:
         """
         
         #if we have two pointers, one to keep track of zero based elements, 
-        #other to keep track on non-zeros. If non-zero = zero, then swap
+        #other to keep track on non-zeros. If non-zero != zero, then swap
         
         if len(nums) <= 1: return nums
         
@@ -13,10 +13,8 @@ class Solution:
         non_zeros = 0
         
         while non_zeros < len(nums):
-            
                 
             if nums[non_zeros] != 0:
-                #swap
                 temp = nums[non_zeros]
                 nums[non_zeros] = nums[zeros]
                 nums[zeros] = temp
