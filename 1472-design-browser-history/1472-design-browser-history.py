@@ -1,23 +1,42 @@
+from collections import deque
 class BrowserHistory:
 
     def __init__(self, homepage: str):
-        self.front = 0
-        self.cur = -1
-        self.hashMap = {-1:homepage}
+        self.history = []
+        self.forward_hist = []
+        self.history.append(homepage)
+        
 
     def visit(self, url: str) -> None:
-        self.front = self.cur + 1
-        self.hashMap[self.front] = url
-        self.front += 1
-        self.cur += 1
+        #visit url from current page - clear up all forward history?
+        self.history.append(url)
+        self.forward_hist.clear()
 
     def back(self, steps: int) -> str:
-        loc = max(-1, self.cur - steps)
-        self.cur = loc
-        return self.hashMap[self.cur]
+        #pop from history x steps then return current url
+        #if size of history < x steps, do as many steps backwards into history then return url
+        
+        while steps:
+            if len(self.history) == 1:
+                break
+            self.forward_hist.append(self.history.pop())
+            steps -= 1
             
-
+        return self.history[-1]
+    
     def forward(self, steps: int) -> str:
-        loc = min(steps + self.cur, self.front - 1)
-        self.cur = loc
-        return self.hashMap[self.cur]
+        
+        if not self.forward_hist:
+            return self.history[-1] 
+        for i in range(min(steps, len(self.forward_hist))):
+            self.history.append(self.forward_hist.pop(-1))
+            steps -= 1
+        
+        return self.history[-1]
+
+
+# Your BrowserHistory object will be instantiated and called as such:
+# obj = BrowserHistory(homepage)
+# obj.visit(url)
+# param_2 = obj.back(steps)
+# param_3 = obj.forward(steps)
