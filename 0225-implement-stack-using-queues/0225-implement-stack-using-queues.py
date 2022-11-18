@@ -21,10 +21,9 @@ class LinkedList:
         
         else:
             self.tail.next = newNode
-            newNode.prev = self.tail
+            newNode.prev, newNode.next = self.tail, None
             self.tail = newNode
-            self.tail.next = None
- 
+
             return
             
     def remove(self) -> int:
