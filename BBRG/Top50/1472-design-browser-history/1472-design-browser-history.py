@@ -12,24 +12,25 @@ class BrowserHistory:
 
     def back(self, steps: int) -> str:
         
-        while steps:
+        for i in range(min(steps, len(self.history))):
+            
             if len(self.history) == 1:
-                break
+                return self.history[-1]
             
             self.forward_history.append(self.history.pop())
             steps -=1
-            
+
         return self.history[-1]
 
     def forward(self, steps: int) -> str:
         
-        if len(self.forward_history) == 0:
-            return self.history[-1]
-        
-        else:
-            for i in range(min(steps, len(self.forward_history))):
-                self.history.append(self.forward_history.pop())
-                steps -= 1
+        for i in range(min(steps, len(self.forward_history))):
+            
+            if len(self.forward_history) == 0:
+                return self.history[-1]
+
+            self.history.append(self.forward_history.pop())
+            steps -= 1
                 
         return self.history[-1]
 
