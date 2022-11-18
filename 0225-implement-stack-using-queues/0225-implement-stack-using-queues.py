@@ -13,6 +13,7 @@ class LinkedList:
         
         newNode = Node(val=val)
         
+        #insert into empty list
         if self.head == None:
             self.head = newNode
             self.tail = self.head
@@ -28,8 +29,9 @@ class LinkedList:
             
     def remove(self) -> int:
         
+        #removing tail when it is also the head
         if self.tail == self.head:
-            res = self.head.val
+            res = self.tail.val
             
             self.head.next, self.tail.next = None, None
             self.head.prev, self.tail.prev = None, None
@@ -38,17 +40,14 @@ class LinkedList:
             return res
         
         elif self.tail:
-            
             res = self.tail.val
             
             temp = self.tail.prev
             
-            self.tail.next = None
-            self.tail.prev = None
+            self.tail.next, self.tail.prev = None, None
             self.tail = None
             
             self.tail = temp
-            
             
             return res
     
